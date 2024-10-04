@@ -27,7 +27,6 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import one.profiler.AsyncProfiler;
-import one.profiler.AsyncProfilerLoader;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.util.StringUtils;
 
@@ -50,11 +49,11 @@ public class ContinuousAsyncProfiler implements DisposableBean {
         }
 
         createOutputDirectories(notManageableProperties);
-        AsyncProfiler asyncProfiler = null;
+        AsyncProfiler asyncProfiler;
         try {
             asyncProfiler = StringUtils.isEmpty(notManageableProperties.getProfilerLibPath()) ?
-                    AsyncProfilerLoader.load() : AsyncProfiler.getInstance(notManageableProperties.getProfilerLibPath());
-        } catch (IOException e) {
+                    AsyncProfiler.getInstance() : AsyncProfiler.getInstance(notManageableProperties.getProfilerLibPath());
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 

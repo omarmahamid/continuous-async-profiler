@@ -24,6 +24,7 @@
         <maven-scm-provider-gitexe.version>1.9.4</maven-scm-provider-gitexe.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <async.profiler.version>3.0</async.profiler.version>
         <src.dir>src/main/java</src.dir>
     </properties>
 
@@ -59,9 +60,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>me.bechberger</groupId>
-            <artifactId>ap-loader</artifactId>
-            <version>2.9-2-all</version>
+            <groupId>tools.profiler</groupId>
+            <artifactId>async-profiler</artifactId>
+            <version>${async.profiler.version}</version>
         </dependency>
     </dependencies>
 
